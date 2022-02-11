@@ -179,7 +179,7 @@ class _AccountDetailesCardState extends State<AccountDetailesCard> {
                           const EdgeInsets.only(right: 25, top: 0, bottom: 0),
                       child: showFiledSharh(
                         'شرح :',
-                        (widget._accountDetailes.Sh ?? '-'),
+                        (widget._accountDetailes.Sh),
                       ),
                     ),
                     //--------------------------------------------------------------------------
