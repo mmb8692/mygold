@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mygold/Models/Models.dart';
-import 'package:persian_fonts/persian_fonts.dart';
 //import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 //import 'package:format/format.dart';
 import 'package:intl/intl.dart' as intl;
@@ -71,7 +70,7 @@ class _AccountDetailesCardState extends State<AccountDetailesCard> {
                             fontSize: 50,
                             color: Colors.white,
                           ),*/
-                          style: PersianFonts.Yekan.copyWith(
+                          style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
@@ -256,7 +255,7 @@ class _AccountDetailesCardState extends State<AccountDetailesCard> {
           textAlign: TextAlign.justify,
           maxLines: 5,
           overflow: TextOverflow.ellipsis,
-          style: PersianFonts.Yekan.copyWith(
+          style: TextStyle(
               fontSize: fontSizeOnvan,
               fontWeight: FontWeight.bold,
               color: onvanColor),
@@ -270,7 +269,7 @@ class _AccountDetailesCardState extends State<AccountDetailesCard> {
           textAlign: TextAlign.justify,
           maxLines: 3,
           overflow: TextOverflow.ellipsis,
-          style: PersianFonts.Yekan.copyWith(
+          style: TextStyle(
               fontSize: fontSizeMatn,
               fontWeight: FontWeight.bold,
               color: matnColor),
@@ -297,7 +296,7 @@ class _AccountDetailesCardState extends State<AccountDetailesCard> {
           textAlign: TextAlign.justify,
           maxLines: 5,
           overflow: TextOverflow.ellipsis,
-          style: PersianFonts.Yekan.copyWith(
+          style: TextStyle(
               fontSize: fontSizeOnvan,
               fontWeight: FontWeight.bold,
               color: onvanColor),
@@ -313,7 +312,7 @@ class _AccountDetailesCardState extends State<AccountDetailesCard> {
             textAlign: TextAlign.justify,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
-            style: PersianFonts.Yekan.copyWith(
+            style: TextStyle(
                 fontSize: fontSizeMatn,
                 fontWeight: FontWeight.bold,
                 color: matnColor),

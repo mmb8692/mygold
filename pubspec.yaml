@@ -30,8 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: 0.13.4
-  persian_fonts:
-
+ 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -63,17 +62,6 @@ flutter:
 
   assets:
       - images/
-
-fonts:
-     - family: Alaem
-       fonts:
-         - asset: fonts/alaem.ttf
-           style: italic
-     - family: IranNastaliq
-       fonts:
-         - asset: fonts/IranNastaliq.ttf
-        # - asset: fonts/TrajanPro_Bold.ttf
-           weight: 700
 
   # To add assets to your application, add an assets section, like this:
   # assets:
