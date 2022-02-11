@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -220,18 +219,11 @@ class _LoginState extends State<Login> {
     var body = userPass;
     var headers = {"Content-Type": "application/json"};
     //UserToken.token = "";
-
     try {
       Response response =
           await post(Uri.parse(url), body: json.encode(body), headers: headers);
       var rjson = json.decode(utf8.decode(response.bodyBytes));
       UserToken.token = rjson["data"];
-
-      //print("Token is: ${UserToken.token}");
-      //setState(() {
-      //ServerRequest(url, body, headers).fetchData();
-      //UserToken.token = rjson["data"];
-      //});
     } on Exception catch (_) {
       print("   خطا در هنگام دریافت اطلاعات از سرور");
       throw Exception("Error on server");
@@ -247,10 +239,6 @@ class _LoginState extends State<Login> {
     await _fetchData(userPass);
     //print("Token is: ${UserToken.token}");
     if (UserToken.token.isNotEmpty) {
-      //print("Token is: ${UserToken.token}");
-
-      //_showDialog("Login", "Login is successfull.");
-
       await _fetchAccounts(UserToken.token)
           .then((value) => Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => ViewAccount())))
@@ -261,33 +249,6 @@ class _LoginState extends State<Login> {
     }
   }
 
-/*
-  void _showDialog(String title, String text) {
-    // flutter defined function
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-
-        return AlertDialog(
-          title: new Text(title),
-          content: new Text(text),
-          actions: [
-            // usually buttons at the bottom of the dialog
-
-            new FlatButton(
-              child: new Text("Close"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-*/
   Future _fetchAccounts(Object token) async {
     String url = 'http://94.183.235.124/api/v1/UsersApi/getbank1';
 

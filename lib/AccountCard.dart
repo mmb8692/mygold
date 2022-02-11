@@ -1,7 +1,4 @@
-// ignore_for_file: unrelated_type_equality_checks
-
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mygold/AccountDetialsPage.dart';
 import 'package:mygold/Data/Data.dart';
@@ -101,7 +98,7 @@ class _AccountCardState extends State<AccountCard> {
           Text(
             onvan!,
             style: TextStyle(
-                fontFamily: 'Tahoma',
+                //fontFamily: 'Tahoma',
                 fontSize: 15,
                 fontWeight: FontWeight.w800),
           ),
@@ -111,7 +108,7 @@ class _AccountCardState extends State<AccountCard> {
             maxLines: 5,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-                fontFamily: 'Tahoma',
+                //fontFamily: 'Tahoma',
                 fontSize: 15,
                 fontWeight: FontWeight.w800),
           ),
@@ -143,7 +140,7 @@ class _AccountCardState extends State<AccountCard> {
               myRialFormat(mojoody(bes, bed)),
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'Tahoma',
+                  //fontFamily: 'Tahoma',
                   fontSize: 15,
                   fontWeight: FontWeight.w800,
                   color: mojoody(bes, bed).sign == 1
@@ -180,7 +177,7 @@ class _AccountCardState extends State<AccountCard> {
               myStringFormatAsFixed(mojoody(bes, bed), 3),
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'Tahoma',
+                  //fontFamily: 'Tahoma',
                   fontSize: 15,
                   fontWeight: FontWeight.w800,
                   color: mojoody(bes, bed).sign == 1
@@ -202,19 +199,6 @@ class _AccountCardState extends State<AccountCard> {
   }
 
 //-------------------------------------------------------------------------
-  // String myRialFormat(double num) {
-  //   String result = '';
-  //   if (num == 0)
-  //     result = '0';
-  //   else
-  //     // result = intl.NumberFormat.simpleCurrency(
-  //     //     locale: 'fa', name: ' ریال ', decimalDigits: 0)
-  //     //     .format(num);
-  //     result = intl.NumberFormat.simpleCurrency(
-  //             locale: 'fa', name: '', decimalDigits: 0)
-  //         .format(num);
-  //   return result;
-  // }
   String myRialFormat(double? num) {
     String result = '';
     if (num == 0) {
@@ -339,164 +323,3 @@ class _AccountCardState extends State<AccountCard> {
   }
   //-------------------------------------------------------
 }
-
-/*
-//==========================================================
-  Widget myCard() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 2, bottom: 1, left: 8, right: 8),
-      child: InkWell(
-        onTap: () async {
-//-----------------------------------
-          await getAccountDetials(
-              double.parse(widget._account.cod), widget._account.officeId!);
-//-----------------------------------
-
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => AccountDetails(
-                  double.parse(widget._account.cod),
-                  widget._account.officeId!)));
-        },
-        child: Card(
-            elevation: 10,
-            //color: Colors.amber,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 1, right: 15, top: 10, bottom: 10),
-              child: Container(
-                //height: 150,
-                //width: 150,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  textDirection: TextDirection.rtl,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      textDirection: TextDirection.rtl,
-                      children: [
-                        Text(
-                          " نام فروشگاه : " +
-                              (widget._account.officeName ?? '-'),
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          widget._account.name ?? '-',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontFamily: 'Tahoma',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        Text(
-                            "آخرین فاکتــــور  : " +
-                                (widget._account.factor ?? '-'),
-                            textDirection: TextDirection.rtl,
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w600)),
-                        Text(
-                          " تاریخ آخرین تراکنش : " +
-                              (widget._account.tariz ?? '-'),
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      //crossAxisAlignment: CrossAxisAlignment.start,
-                      //textDirection: TextDirection.rtl,
-                      children: [
-                        Card(
-                          elevation: 3,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child: Container(
-                            width: 200,
-                            height: 35,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              //crossAxisAlignment: CrossAxisAlignment.center,
-                              textDirection: TextDirection.rtl,
-                              children: [
-                                Text(" : موجودی ریالی"),
-                                Text(
-                                  mojoody(widget._account.r_bes!,
-                                          widget._account.r_bed!)
-                                      .toStringAsFixed(0),
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'Tahoma',
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w800,
-                                      color: mojoody(widget._account.r_bes!,
-                                                      widget._account.r_bed!)
-                                                  .sign ==
-                                              1
-                                          ? Colors.green[400]
-                                          : Colors.red[400]),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Card(
-                          elevation: 3,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(90),
-                          ),
-                          child: Container(
-                            width: 200,
-                            height: 35,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              //crossAxisAlignment: CrossAxisAlignment.center,
-                              textDirection: TextDirection.rtl,
-                              children: [
-                                Text(" : موجودی وزنی"),
-                                Text(
-                                  mojoody(widget._account.v_bes!,
-                                          widget._account.v_bed!)
-                                      .toStringAsFixed(3),
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'Tahoma',
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w800,
-                                      color: mojoody(widget._account.v_bes!,
-                                                      widget._account.v_bed!)
-                                                  .sign ==
-                                              1
-                                          ? Colors.green[400]
-                                          : Colors.red[400]),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            )),
-      ),
-    );
-  }
-//==========================================================
-
-  double mojoody(double bed, double bes) {
-    double result = bes - bed;
-    //String outresult = result.
-    //return result.toString().substring(result.toString().indexOf('.'), 3);
-    return result;
-  }
-*/
-//----------------------------------------------------------------------
-

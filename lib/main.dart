@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mygold/Data/Data.dart';
 import 'package:mygold/LoginPage.dart';
 
 void main() {
